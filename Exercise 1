@@ -1,0 +1,128 @@
+SAVEETHA SCHOOL OF ENGINEERING,THANDALAM
+
+NAME: S.PADMASRI
+REG.NO:192124165
+SUB: Statistics with R Programming for Real Time Problems
+SUB CODE: ITA0443
+
+Exercise:1
+1.Write The Commands To Perform Basic Arithmetic In R.
+CODE:
+a&lt;-2
+b&lt;-3
+print(&quot;addition&quot;)
+x&lt;-a+b
+print(x)
+print(&quot;subtraction&quot;)
+y&lt;-a-b
+print(y)
+print(&quot;multiplication&quot;)
+s&lt;-a*b
+print(s)
+print(&quot;division&quot;)
+m&lt;-a/b
+print(m)
+print(&quot;modulus&quot;)
+n&lt;-a%%b
+print(n)
+print(&quot;exponent&quot;)
+
+h&lt;-a^b
+print(h)
+OUTPUT:
+
+2. Display a String on R Console.
+CODE:
+x<-"HELLO"
+print(x)OUTPUT:
+> x<-"HELLO"
+> print(x)
+[1] "HELLO"
+
+3. Declare Variables In R And Also Write The Commands For Retrieving The Value Of
+The Stored Variables In R Console.
+CODE:
+x<-c(10,22,34,46,53,66)
+print(x)
+OUTPUT:
+> x<-c(10,22,34,46,53,66)
+> print(x)
+[1] 10 22 34 46 53 66
+
+4. Write R script to calculate the area of Rectangle.
+CODE:
+h Height<-6
+width<-3
+area_rec<-Height*width
+print(area_rec)
+OUTPUT:
+> Height<-6
+> width<-3
+> area_rec<-Height*width
+> print(area_rec)
+[1] 18
+
+5.Write Commands In R Console To Determine The Type Of Variable
+CODE:
+M<-c(20,13,43,22)
+class(M)
+M<-c("MIN","JIN","ROSE")
+class(M)
+OUTPUT:
+> M<-c(20,13,43,22)
+> class(M)
+[1] "numeric"
+> M<-c("MIN","JIN","ROSE")
+> class(M)
+[1] "character"
+
+6.Enumerate The Process To Check Whether A Given Input Is Numeric , Integer ,
+Double, Complex in R.
+CODE:
+is.numeric(3)
+is.integer(3L)
+is.integer(3)
+b&lt;-double(6)
+
+b
+is.double(b)
+z=1+3i
+class(z)
+z= 10 + 21i
+class(z)
+is.complex(20+30i)
+is.complex(67)
+OUTPUT:
+
+7. Illustration of Vector Arithmetic.
+CODE:
+x&lt;-c(3,6,7)
+y&lt;-c(4,5,9)
+
+s=4*x
+print(&quot;4*x=&quot;)
+print(s)
+print(&quot;add&quot;)
+add=x+y
+print(add)
+sub=x-y
+print(&quot;sub&quot;)
+print(sub)
+mul=x*y
+print(&quot;mul&quot;)
+print(mul)
+div=x/y
+print(&quot;div&quot;)
+print(div)
+
+OUTPUT:
+
+8. Write an R Program to Take Input From User.
+Input name as “Jack” and age as 17.
+The program should display the output as
+“Hai , Jack next year you will be 18 years old”
+CODE:
+n&lt;-&quot;jack&quot;
+a&lt;-17
+sprintf(&quot;Hai,%s next year you will be %d years old&quot;,n,a)
+OUTPUT:
