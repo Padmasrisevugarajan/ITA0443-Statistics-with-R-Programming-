@@ -1,0 +1,330 @@
+SAVEETHA SCHOOL OF ENGINEERING,THANDALAM
+
+NAME: S.PADMASRI
+REG.NO:192124165
+SUB: Statistics with R Programming for Real Time Problems
+SUB CODE: ITA0443
+Exercise:2
+1) Perform Matrix Addition &amp;amp; Subtraction in R
+CODE:
+a= matrix(c(1, 2, 3, 4, 5, 6), nrow =2)
+print("Matrix one")
+print(a)
+b= matrix(c(0, 1, 2, 3, 0, 2), nrow = 2)
+print("Matrix two")
+print(b)
+s= a+ b
+print("Result of addition")
+print(s)
+s= a-b
+print("subtraction")
+print(s)
+OUTPUT:
+> a= matrix(c(1, 2, 3, 4, 5, 6), nrow =2)
+> print("Matrix one")
+[1] "Matrix one"
+> print(a)
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> b= matrix(c(0, 1, 2, 3, 0, 2), nrow = 2)
+> print("Matrix two")
+[1] "Matrix two"
+> print(b)
+     [,1] [,2] [,3]
+[1,]    0    2    0
+[2,]    1    3    2
+> s= a+ b
+> print("Result of addition")
+[1] "Result of addition"
+> print(s)
+     [,1] [,2] [,3]
+[1,]    1    5    5
+[2,]    3    7    8
+> s= a-b
+> print("subtraction")
+[1] "subtraction"
+> print(s)
+     [,1] [,2] [,3]
+[1,]    1    1    5
+[2,]    1    1    4
+
+2) Perform Scalar multiplication and matrix multiplication in R
+CODE:
+a<- matrix(1:9, nrow=3)
+a<- 2*a
+print(a)
+OUTPUT:
+> a<- matrix(1:9, nrow=3)
+> a<- 2*a
+> print(a)
+     [,1] [,2] [,3]
+[1,]    2    8   14
+[2,]    4   10   16
+[3,]    6   12   18
+
+3) Find Transpose of matrix in R.
+CODE:
+a <-matrix(1:6, nrow = 2)
+print(a)
+t <-t(a)
+print(t)
+OUTPUT:
+> a <-matrix(1:6, nrow = 2)
+> print(a)
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> t <-t(a)
+> print(t)
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+
+4) Perform the operation of combining matrices in R using cbind() and rbind(
+
+functions.
+CODE:
+a= matrix(c(1:9), nrow =3)
+b = matrix(c(10:18), nrow =3)
+print(a)
+print(b)
+print (cbind(a,b))
+print (rbind(a,b))
+OUTPUT:
+> a= matrix(c(1:9), nrow =3)
+> b = matrix(c(10:18), nrow =3)
+> print(a)
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+> print(b)
+     [,1] [,2] [,3]
+[1,]   10   13   16
+[2,]   11   14   17
+[3,]   12   15   18
+> print (cbind(a,b))
+     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1    4    7   10   13   16
+[2,]    2    5    8   11   14   17
+[3,]    3    6    9   12   15   18
+> print (rbind(a,b))
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+[4,]   10   13   16
+[5,]   11   14   17
+[6,]   12   15   18
+
+5) Deconstruct a matrix in R
+CODE:
+s= matrix(c(1:6), nrow =2)
+
+c(s)
+OUTPUT:
+> 
+> s= matrix(c(1:6), nrow =2)
+> 
+> c(s)
+[1] 1 2 3 4 5 6
+
+6) Perform array manipulation in R .
+CODE:
+a <-c(1, 2, 3)
+b  <-c(4, 6, 8, 0, 2, 4)
+x <-array(c(a,b), dim = c(3, 3, 2))
+c  <-c(3, 2, 1)
+d <-c(2, 4, 6, 8, 3, 5)
+y  <-array(c(c,d), dim = c(3, 3, 2))
+a  <-x[,,2]
+b <-y[,,2]
+result  <-a + b
+print(result)
+OUTPUT:
+> 
+> a <-c(1, 2, 3)
+> b  <-c(4, 6, 8, 0, 2, 4)
+> x <-array(c(a,b), dim = c(3, 3, 2))
+> c  <-c(3, 2, 1)
+> d <-c(2, 4, 6, 8, 3, 5)
+> y  <-array(c(c,d), dim = c(3, 3, 2))
+> a  <-x[,,2]
+> b <-y[,,2]
+> result  <-a + b
+> print(result)
+     [,1] [,2] [,3]
+[1,]    4    6    8
+[2,]    4   10    5
+[3,]    4   14    9
+
+7) Perform calculations across array elements in an array using the apply() function.
+CODE:
+a<-c(6,8,9)
+b<-c(10, 20, 30, 23, 17, 18)
+column<-c("COLUMN1","COLUMN2","COLUMN3")
+row<-c("ROW1", "ROW2", "ROW3")
+matri_x <-c("Matrix.NO1","Matrix.NO2")
+r<-array(c(a,b), dim = c(3, 3, 2),
+         dimnames = list(row, column, matri_x))
+print(r)
+print(r[3,,2])
+OUTPUT:
+> a<-c(6,8,9)
+> b<-c(10, 20, 30, 23, 17, 18)
+> column<-c("COLUMN1","COLUMN2","COLUMN3")
+> row<-c("ROW1", "ROW2", "ROW3")
+> matri_x <-c("Matrix.NO1","Matrix.NO2")
+> r<-array(c(a,b), dim = c(3, 3, 2),
++          dimnames = list(row, column, matri_x))
+> print(r)
+, , Matrix.NO1
+
+     COLUMN1 COLUMN2 COLUMN3
+ROW1       6      10      23
+ROW2       8      20      17
+ROW3       9      30      18
+
+, , Matrix.NO2
+
+     COLUMN1 COLUMN2 COLUMN3
+ROW1       6      10      23
+ROW2       8      20      17
+ROW3       9      30      18
+
+> print(r[3,,2])
+COLUMN1 COLUMN2 COLUMN3 
+      9      30      18
+
+8) Demonstrate Factor data structure in R.
+CODE:
+age<-c(18, 30, 10, 70)
+print(age)
+Id<-c(1, 2, 3, 4)
+Name<-c("min", "Suga", "jin", "kim")
+numberOfEmp = 4
+L_ist = list(Id,Name, numberOfEmp)
+print(L_ist)
+A= matrix(c(1:9),nrow = 3, ncol = 3,byrow = TRUE)
+print(A)
+B = array(c(1, 2, 3, 4, 5, 6, 7, 8) ,dim = c(2, 2, 2) )
+print(B)
+
+fac = factor(c("Male", "Female","Male","Male","Female","Male","Female"))
+print(fac)
+df<-data.frame(Name,age)
+print(df)
+OUTPUT:
+> age<-c(18, 30, 10, 70)
+> print(age)
+[1] 18 30 10 70
+> Id<-c(1, 2, 3, 4)
+> Name<-c("min", "Suga", "jin", "kim")
+> numberOfEmp = 4
+> L_ist = list(Id,Name, numberOfEmp)
+> print(L_ist)
+[[1]]
+[1] 1 2 3 4
+
+[[2]]
+[1] "min"  "Suga" "jin"  "kim" 
+
+[[3]]
+[1] 4
+
+> A= matrix(c(1:9),nrow = 3, ncol = 3,byrow = TRUE)
+> print(A)
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+> B = array(c(1, 2, 3, 4, 5, 6, 7, 8) ,dim = c(2, 2, 2) )
+> print(B)
+, , 1
+
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+, , 2
+
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+
+> 
+> fac = factor(c("Male", "Female","Male","Male","Female","Male","Female"))
+> print(fac)
+[1] Male   Female Male   Male   Female Male   Female
+Levels: Female Male
+> df<-data.frame(Name,age)
+> print(df)
+  Name age
+1  min  18
+2 Suga  30
+3  jin  10
+4  kim  70
+
+9) Create a data frame and print the structure of the data frame in R.
+CODE:
+name<- c("min", "Suga", "jin", "kim")
+age<-c(18,20,17,18)
+
+df<-data.frame(name,age)
+print(df)
+str(df)
+OUTPUT:
+> name<- c("min", "Suga", "jin", "kim")
+> age<-c(18,20,17,18)
+> 
+> df<-data.frame(name,age)
+> print(df)
+  name age
+1  min  18
+2 Suga  20
+3  jin  17
+4  kim  18
+> str(df)
+'data.frame':	4 obs. of  2 variables:
+ $ name: chr  "min" "Suga" "jin" "kim"
+ $ age : num  18 20 17 18
+10) Demonstrate the creation of S3 class in R.
+CODE:
+X<- list(name =padmasri, account_no = 12345678,saving =35500, withdrawn = 2000)
+class(x)<-bank
+x
+OUTPUT:
+> x<- list(name ="padmasri", account_no = 12345678,saving =35500, withdrawn = 2000)
+> class(x)<-"bank"
+> x
+$name
+[1] "padmasri"
+
+$account_no
+[1] 12345678
+
+$saving
+[1] 35500
+
+$withdrawn
+[1] 2000
+
+attr(,"class")
+[1] "bank"
+
+11) Demonstrate the creation of S4 class in R.
+CODE:
+setClass("student_Info", slots=list(name="character", age="numeric"))
+stu<-- new("student_Info", name = "Padmasri", age = 18)
+stu
+
+12) Demonstrate the creation of Reference class in R by defining a class called students
+with fields – Name, Age , GPA. Also illustrate how the fields of the object can be
+accessed using the $ operator. Modify the Name field by reassigning the name to Paul.
+CODE:
+student &lt;- setRefClass(&quot;student&quot;,fields = list(name = &quot;character&quot;, age = &quot;numeric&quot;, GPA = &quot;numeric&quot;))
+s &lt;- student(name = &quot;padmasri&quot;, age = 21, GPA = 3.5)
+s
+OUTPUT:
