@@ -1,0 +1,151 @@
+SAVEETHA SCHOOL OF ENGINEERING
+
+SAVEETHA INSTITUTE OF MEDICAL AND TECHNICAL SCIENCES
+ITA 0443 - STATISTICS WITH R PROGRAMMING FOR REAL TIME PROBLEM
+
+DAY 3 – LAB ASSESSMENT
+
+Reg No: 192124165
+Name: S.PADMASRI
+
+1. (i) Write a function in R programming to print generate Fibonacci sequence using  
+Recursion in R
+ . CODE:
+nterms = as.integer(readline(prompt="How many terms? "))
+n1 = 0
+n2 = 1
+count = 2
+if(nterms <= 0) {
+  print("Plese enter a positive integer")
+} else {
+  if(nterms == 1) {
+    print("Fibonacci sequence:")
+    print(n1)
+  } else {
+    print("Fibonacci sequence:")
+    print(n1)
+    print(n2)
+    while(count < nterms) {
+      nth = n1 + n2
+      print(nth)
+      # update values
+      n1 = n2
+      n2 = nth
+      count = count + 1
+    }
+  }
+}
+OUTPUT:
+How many terms? 7
+[1] "Fibonacci sequence:"
+[1] 0
+[1] 1
+[1] 1
+[1] 2
+[1] 3
+[1] 5
+[1] 8
+
+(ii) Find sum of natural numbers up-to 10, without formula using loop statement.
+CODE:
+num = as.integer(readline(prompt = "Enter a number: "))
+if(num < 0) {
+  print("Enter a positive number")
+} else {
+  sum = 0
+  while(num > 0) {
+    sum = sum + num
+    num = num - 1
+  }
+  print(paste("The sum is", sum))
+}
+OUTPUT:
+Enter a number: 10
+[1] "The sum is 55"
+
+(iii) create a vector 1:10 and Find a square of each number and store that in a
+separate list.
+CODE:
+A <- 1:5               
+A                  
+A^2     
+OUTPUT:
+> A <- 1:5               
+> A                  
+[1] 1 2 3 4 5
+> A^2     
+[1]  1  4  9 16 25
+
+2.    (motor trend car road test) comprises fuel consumption, performance and  10 aspects
+of automobile
+design for 32 automobiles. It comes pre-installed  with  package in R.
+ (i)Find the dimension of the dataset
+(ii)Give the statistical summary of the features.
+(iii)Print the categorical features in Dataset
+(iv)Find the average weight(wt) grouped by Engine shape(vs)
+(v)Find the largest and smallest value of the variable weight with respect to Engine shape  
+CODE:
+OUTPUT:
+
+3.Use ggplot package to plot below EDA questions label the plot accordingly
+(i)Create weight(wt) vs displacement(disp) scatter plot factor by  Engine Shape(vs)
+(ii) Create horsepower(hp) vs mileage (mgp) scatter plot factor by  Engine Shape(vs)
+(iv)In above plot , Separate columns according to cylinders(cyl) size
+(v) Create histogram plot for horsepower (hp) with bin-width size of 5
+CODE:
+OUTPUT:
+
+
+  4. Performing Logistic regression on dataset to predict the cars Engine shape(vs) .
+(i)Do the EDA analysis and find the features which is impact the Engine shape and use
+this for model.
+(ii) Split the data set randomly with 80:20 ration to create train and test dataset and create
+logistic model
+(iii)Create the Confusion matrix among prediction and test data.
+CODE:
+OUTPUT:
+
+5. (I) Write R Program to create 15 x15 matrix filled with random numbers between -10 to
+10, numbers can repeat. set random seed value to 328
+CODE:
+A<-matrix(c(1:225),nrow=15,ncol=15)
+print(A)
+OUTPUT:
+> A<-matrix(c(1:225),nrow=15,ncol=15)
+> print(A)
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+ [1,]    1   16   31   46   61   76   91  106  121   136   151   166   181   196
+ [2,]    2   17   32   47   62   77   92  107  122   137   152   167   182   197
+ [3,]    3   18   33   48   63   78   93  108  123   138   153   168   183   198
+ [4,]    4   19   34   49   64   79   94  109  124   139   154   169   184   199
+ [5,]    5   20   35   50   65   80   95  110  125   140   155   170   185   200
+ [6,]    6   21   36   51   66   81   96  111  126   141   156   171   186   201
+ [7,]    7   22   37   52   67   82   97  112  127   142   157   172   187   202
+ [8,]    8   23   38   53   68   83   98  113  128   143   158   173   188   203
+ [9,]    9   24   39   54   69   84   99  114  129   144   159   174   189   204
+[10,]   10   25   40   55   70   85  100  115  130   145   160   175   190   205
+[11,]   11   26   41   56   71   86  101  116  131   146   161   176   191   206
+[12,]   12   27   42   57   72   87  102  117  132   147   162   177   192   207
+[13,]   13   28   43   58   73   88  103  118  133   148   163   178   193   208
+[14,]   14   29   44   59   74   89  104  119  134   149   164   179   194   209
+[15,]   15   30   45   60   75   90  105  120  135   150   165   180   195   210
+      [,15]
+ [1,]   211
+ [2,]   212
+ [3,]   213
+ [4,]   214
+ [5,]   215
+ [6,]   216
+ [7,]   217
+
+    (ii)Write R Program to display Lower Diagonal and upper Diagonal matrix  
+   (iii)Write R Program to count 0&#39;s in the matrix and check the matrix is sparse matrix or
+not
+
+   (iv) Write R code to remove outliers. Here the outliers are negative numbers. replace the
+negative values with positive values
+   (v) Find the mean median and mode of the values corresponding to column
+   (vi)Find the mean median and mode of the values corresponding to row
+CODE:
+OUTPUT:
+
