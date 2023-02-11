@@ -1,0 +1,242 @@
+SAVEETHA SCHOOL OF ENGINEERING
+
+SAVEETHA INSTITUTE OF MEDICAL AND TECHNICAL SCIENCES
+ITA 0443 - STATISTICS WITH R PROGRAMMING FOR REAL TIME PROBLEM
+
+DAY 4– LAB MANUAL
+
+Reg No: 192124165
+Name: S.Padmasri
+
+LINEAR REGRESSION ANALYSIS IN R
+
+Exercise
+1. Using linear regression analysis establish a relationship between height and weight of a
+person using the input vector given below.
+# Values of height
+151, 174, 138, 186, 128, 136, 179, 163, 152, 131
+# Values of weight.
+63, 81, 56, 91, 47, 57, 76, 72, 62, 48
+Predict the weight of a person with height 170
+CODE:
+a<- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+b<- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+relation <- lm(b~a)
+p<- data.frame(x = 170)
+result <-  predict(relation,p)
+print(result)
+OUTPUT:
+> a<- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+> b<- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+> relation <- lm(b~a)
+> p<- data.frame(x = 170)
+> result <-  predict(relation,p)
+Warning message:
+'newdata' had 1 row but variables found have 10 rows 
+> print(result)
+       1        2        3        4        5        6        7        8        9 
+63.41109 78.92713 54.64115 87.02246 47.89505 53.29193 82.30018 71.50642 64.08570 
+      10 
+49.91888
+ Visualize the regression graphically.
+CODE:
+a<- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+b<- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+relation <- lm(b~a)
+png(file = "linearregression.png")
+plot(b,a,col = "blue",main = "Height & Weight Regression",
+     abline(lm(a~b)),cex = 1.3,pch = 16,xlab = "Weight in Kg",ylab = "Height in cm")
+dev.off()
+OUTPUT:
+
+ 
+
+
+2. Download the Dataset “water” From Rdataset Link.Find out whether there is a linear
+relation between attributes”mortality”and”hardness” by plot function.Fit the Data into the
+Linear Regression model.Predict the mortality for the hardness=88.
+CODE:
+library(readxl)
+water_csv <- read_excel("water.csv.xlsx")
+View(water_csv)
+dataset<-read.csv("water.csv")
+View(data)
+rel<-lm(mortality~hardness,data = dataset)
+A<- data.frame(hardness=88)
+Res<- predict(rel, A)
+print(Res)
+
+OUTPUT:
+
+
+MULTIPLE REGRESSION ANALYSIS IN R
+Exercise:
+1.Generate a multiple regression model using the built in dataset mtcars.It gives a comparison
+between different car models in terms of mileage per gallon (mpg), cylinder
+displacement(“disp”), horse power(“hp”), weight of the car(“wt&”) and some more parameters.
+Establish the relationship between “mpg” as a response variable with “disp”,”hp” and”wt” as
+predictor variables. Predict the mileage of the car with dsp=221,hp=102 and wt=2.91.
+CODE:
+input <- mtcars[,c("mpg","disp","hp","wt")]
+print(head(input))
+input <- mtcars[,c("mpg","disp","hp","wt")].
+model <- lm(mpg~disp+hp+wt, data = input)
+print(model).
+cat("# # # # The Coefficient Values # # # ","\n")
+a <- coef(model)[1]
+print(a)
+Xdisp <- coef(model)[2]
+Xhp <- coef(model)[3]
+Xwt <- coef(model)[4]
+print(Xdisp)
+print(Xhp)
+print(Xwt)
+OUTPUT:
+                   mpg disp  hp    wt
+Mazda RX4         21.0  160 110 2.620
+Mazda RX4 Wag     21.0  160 110 2.875
+Datsun 710        22.8  108  93 2.320
+Hornet 4 Drive    21.4  258 110 3.215
+Hornet Sportabout 18.7  360 175 3.440
+Valiant           18.1  225 105 3.460
+Error: unexpected symbol in "input <- mtcars[,c("mpg","disp","hp","wt")]."
+Execution halted
+
+[Execution complete with exit code 1]
+
+2. Consider the data set “delivery” available in the R environment. It gives a deliverytime
+(“delTime”)of production materials(number of productions “n.prod”) with the given
+distance(“distance”) to reach the destination place.
+
+a)Create the model to establish the relationship between “delTime” as a response
+variable with “n.prod” and”distance” as predictor variables.
+b)Predict the delTime for the given number of production(“n.prod”)=9 and
+distance(“distance”)=450
+CODE:
+library(robustbase)
+library(investr)
+library(ggplot2)
+library(gridExtra)
+data("delivery")
+dist.lm <- lm(delTime ~ distance, data = delivery)
+prod.lm <- lm(delTime ~ n.prod, data = delivery)
+par(mfrow=c(2,2))
+
+plotFit(dist.lm, interval = 'confidence', adjust = 'Scheffe', main = 'Working-Hotelling DelTime ~ Distance')
+plotFit(prod.lm, interval = 'confidence', adjust = 'Scheffe', main = 'Working-Hotelling DelTime ~ Products')
+
+plotFit(dist.lm, interval = 'confidence', k = 9, adjust = 'Bonferroni', main = 'Bonferroni DelTime ~ Distance')
+plotFit(prod.lm, interval = 'confidence', k = 450, adjust = 'Bonferroni', main = 'Bonferroni DelTime ~ Products')
+OUTPUT:
+> library(robustbase)
+> library(investr)
+> library(ggplot2)
+Learn more about the underlying theory at https://ggplot2-book.org/
+> library(gridExtra)
+> data("delivery")
+> dist.lm <- lm(delTime ~ distance, data = delivery)
+> prod.lm <- lm(delTime ~ n.prod, data = delivery)
+> par(mfrow=c(2,2))
+> 
+> plotFit(dist.lm, interval = 'confidence', adjust = 'Scheffe', main = 'Working-Hotelling DelTime ~ Distance')
+> plotFit(prod.lm, interval = 'confidence', adjust = 'Scheffe', main = 'Working-Hotelling DelTime ~ Products')
+> 
+> plotFit(dist.lm, interval = 'confidence', k = 9, adjust = 'Bonferroni', main = 'Bonferroni DelTime ~ Distance')
+> plotFit(prod.lm, interval = 'confidence', k = 450, adjust = 'Bonferroni', main = 'Bonferroni DelTime ~ Products')
+ 
+
+LOGISTIC REGRESSION ANALYSIS IN R
+
+Exercise
+1. Create a logistic regression model using the “mtcars” data set with the information given
+below.
+The in-built data set “mtcars” describes different models of a car with their various engine
+specifications. In “mtcars” data set, the transmission mode (automatic or manual) is described
+by the column am which is a binary value (0 or 1). Create a logistic regression model
+between the columns”am” and 3 other columns - hp, wt and cyl.
+CODE:
+library(knitr)
+library(printr)
+kable(head(mtcars),align = 'c')
+mtcars$amfactor <- factor(mtcars$am, labels = c("automatic", "manual")) 
+summary(lm(mpg ~ factor(amfactor), data = mtcars))$coef
+library(MASS)
+fit <- lm(mpg ~ cyl+disp+hp+drat+wt+qsec+factor(vs)+factor(am)+gear+carb, data = mtcars)
+step <- stepAIC(fit, direction="both", trace=FALSE)
+summary(step)$coeff
+OTUPUT:
+> kable(head(mtcars),align = 'c')
+
+
+|                  | mpg  | cyl | disp | hp  | drat |  wt   | qsec  | vs | am | gear | carb | amfactor  |
+|:-----------------|:----:|:---:|:----:|:---:|:----:|:-----:|:-----:|:--:|:--:|:----:|:----:|:---------:|
+|Mazda RX4         | 21.0 |  6  | 160  | 110 | 3.90 | 2.620 | 16.46 | 0  | 1  |  4   |  4   |  manual   |
+|Mazda RX4 Wag     | 21.0 |  6  | 160  | 110 | 3.90 | 2.875 | 17.02 | 0  | 1  |  4   |  4   |  manual   |
+|Datsun 710        | 22.8 |  4  | 108  | 93  | 3.85 | 2.320 | 18.61 | 1  | 1  |  4   |  1   |  manual   |
+|Hornet 4 Drive    | 21.4 |  6  | 258  | 110 | 3.08 | 3.215 | 19.44 | 1  | 0  |  3   |  1   | automatic |
+|Hornet Sportabout | 18.7 |  8  | 360  | 175 | 3.15 | 3.440 | 17.02 | 0  | 0  |  3   |  2   | automatic |
+|Valiant           | 18.1 |  6  | 225  | 105 | 2.76 | 3.460 | 20.22 | 1  | 0  |  3   |  1   | automatic |
+> mtcars$amfactor <- factor(mtcars$am, labels = c("automatic", "manual")) 
+> summary(lm(mpg ~ factor(amfactor), data = mtcars))$coef
+                        Estimate Std. Error   t value     Pr(>|t|)
+(Intercept)            17.147368   1.124603 15.247492 1.133983e-15
+factor(amfactor)manual  7.244939   1.764422  4.106127 2.850207e-04
+> library(MASS)
+> fit <- lm(mpg ~ cyl+disp+hp+drat+wt+qsec+factor(vs)+factor(am)+gear+carb, data = mtcars)
+> step <- stepAIC(fit, direction="both", trace=FALSE)
+> summary(step)$coeff
+             Estimate Std. Error   t value     Pr(>|t|)
+(Intercept)  9.617781  6.9595930  1.381946 1.779152e-01
+
+POISSON REGRESSION ANALYSIS IN R
+
+Exercise :
+1. Create a Poisson regression model using the in-built data set “warpbreaks” with
+information given below
+In-built data set “warpbreaks” describes the effect of wool type (A or B) and tension (low,
+medium or high) on the number of warp breaks per loom. Consider “breaks”as the response
+variable which is a count of number of breaks. The wool “type” and”tension” are taken as
+predictor variables.
+CODE:
+input <- warpbreaks
+print(head(input))
+output <-glm(formula = breaks ~ wool+tension, data = warpbreaks, family = poisson)
+print(summary(output))
+OUTPUT:
+> input <- warpbreaks
+> print(head(input))
+  breaks wool tension
+1     26    A       L
+2     30    A       L
+3     54    A       L
+4     25    A       L
+5     70    A       L
+6     52    A       L
+> output <-glm(formula = breaks ~ wool+tension, data = warpbreaks, family = poisson)
+> print(summary(output))
+
+Call:
+glm(formula = breaks ~ wool + tension, family = poisson, data = warpbreaks)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.6871  -1.6503  -0.4269   1.1902   4.2616  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.69196    0.04541  81.302  < 2e-16 ***
+woolB       -0.20599    0.05157  -3.994 6.49e-05 ***
+tensionM    -0.32132    0.06027  -5.332 9.73e-08 ***
+tensionH    -0.51849    0.06396  -8.107 5.21e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 297.37  on 53  degrees of freedom
+Residual deviance: 210.39  on 50  degrees of freedom
+AIC: 493.06
+
+Number of Fisher Scoring iterations: 4
+
+
